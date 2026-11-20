@@ -1,0 +1,292 @@
+[
+    {
+        "name": "abs()",
+        "category": "내장함수",
+        "description": "숫자의 절댓값 반환, 음수와 양수 모두 양수로 변환, 0은 0",
+        "example": "abs(-3)",
+        "result": "3"
+    
+    },
+    {
+        "name": "all()",
+        "category": "내장 함수",
+        "description": "모든 요소가 참이면 True 반환, 0, 빈 문자열, 빈 리스트 등은 False로 판정",
+        "example": "all([0,1,2])",
+        "result": "False"
+    },
+    {
+        "name": "any()",
+        "category": "내장 함수",
+        "description": "하나라도 참인 요소가 있으면 True 반환, 하나라도 참인 값이 있으면 True",
+        "example": "any([0,0,1])",
+        "result": "True"
+    },
+
+    {
+        "name": "bin()",
+        "category": "내장 함수",
+        "description": "정수를 2진수로 변환, 2진수이기에 결과 앞에 0b가 붙음",
+        "example": "bin(3)",
+        "result": "0b11"
+    },
+    {
+        "name": "bool()",
+        "category": "내장 함수",
+        "description": "값을 참(True) 또는 거짓(False)으로 변환, 0, 빈 문자열, 빈 리스트는 False",
+        "example": "bool(1)",
+        "result": "True"
+    },
+    {
+        "name": "bytearray()",
+        "category": "내장 함수",
+        "description": "수정 가능한 바이트 자료형 생성, 생성 후 내부 값을 변경할 수 있음",
+        "example": "a = bytearray('hi', 'utf-8')\na[0] = 72\nprint(a)",
+        "result": "bytearray(b'Hi')"
+    },
+    {
+        "name": "bytes()",
+        "category": "내장 함수",
+        "description": "수정 불가능한 바이트 자료형 생성, 생성 후 내부 값을 변경할 수 없음",
+        "example": "a = bytes('hi', 'utf-8')\nprint(a)",
+        "result": "b'hi'"
+    },
+    {
+        "name": "complex()",
+        "category": "내장 함수",
+        "description": "복소수 형태로 변환, 허수 부분을 나타낼 때 j를 사용",
+        "example": "complex(1, 2)",
+        "result": "(1+2j)"
+    },
+    {
+        "name": "dict()",
+        "category": "내장 함수",
+        "description": "딕셔너리 생성, 키(Key)와 값(Value)을 한 쌍으로 저장",
+        "example": "dict(a=1)",
+        "result": "{'a': 1}"
+    },
+    {
+        "name": "dir()",
+        "category": "내장 함수",
+        "description": "객체가 가진 속성과 함수 목록 반환",
+        "example": "dir('hi')",
+        "result": "문자열의 속성 목록"
+    },
+    {
+        "name": "eval()",
+        "category": "내장 함수",
+        "description": "문자열로 된 표현식을 실행, 문자열을 파이썬 표현식으로 실행하므로 신뢰할 수 없는 입력에는 사용하지 않음",
+        "example": "eval('1+2')",
+        "result": "3"
+    },
+    {
+        "name": "float()",
+        "category": "내장 함수",
+        "description": "데이터를 실수로 변환",
+        "example": "float(3)",
+        "result": "3.0"
+    },
+    {
+        "name": "help()",
+        "category": "내장 함수",
+        "description": "함수나 객체의 사용법 설명",
+        "example": "help(len)",
+        "result": "len 사용법 설명"
+    },
+    {
+        "name": "id()",
+        "category": "내장 함수",
+        "description": "객체의 고유 식별 번호 반환, 실행 환경에 따라 반환되는 식별 번호가 달라질 수 있음",
+        "example": "id(1)",
+        "result": "객체의 식별 번호"
+    },
+    {
+        "name": "input()",
+        "category": "내장 함수",
+        "description": "사용자에게 데이터 입력받기, 입력받은 값은 기본적으로 문자열(str)",
+        "example": "input('입력: ')",
+        "result": "사용자가 입력한 값"
+    },
+    {
+        "name": "int()",
+        "category": "내장 함수",
+        "description": "데이터를 정수로 변환",
+        "example": "int(3.5)",
+        "result": "3"
+    },
+    {
+        "name": "isinstance()",
+        "category": "내장 함수",
+        "description": "객체가 특정 자료형인지 확인, 자료형이 맞으면 True, 아니면 False",
+        "example": "isinstance(1, int)",
+        "result": "True"
+    },
+    {
+        "name": "len()",
+        "category": "내장 함수",
+        "description": "문자열이나 자료형의 길이 반환, 글자 수 또는 요소의 개수를 반환",
+        "example": "len('123')",
+        "result": "3"
+    },
+    {
+        "name": "list()",
+        "category": "내장 함수",
+        "description": "리스트 생성 또는 자료형 변환, 생성 후 요소를 수정하거나 추가할 수 있음",
+        "example": "list('123')",
+        "result": "['1', '2', '3']"
+    },
+    {
+        "name": "max()",
+        "category": "내장 함수",
+        "description": "가장 큰 값 반환",
+        "example": "max(1, 2, 3)",
+        "result": "3"
+    },
+    {
+        "name": "min()",
+        "category": "내장 함수",
+        "description": "가장 작은 값 반환",
+        "example": "min(1, 2, 3)",
+        "result": "1"
+    },
+    {
+        "name": "object()",
+        "category": "내장 함수",
+        "description": "새로운 기본 객체 생성",
+        "example": "object()",
+        "result": "새로운 객체 생성"
+    },
+    {
+        "name": "open()",
+        "category": "내장 함수",
+        "description": "파일 열기",
+        "example": "open('a.txt', 'r')",
+        "result": "파일 열기"
+    },
+    {
+        "name": "print()",
+        "category": "내장 함수",
+        "description": "화면에 값 출력",
+        "example": "print('프로그래밍2 최고!')",
+        "result": "프로그래밍2 최고!"
+    },
+    {
+        "name": "range()",
+        "category": "내장 함수",
+        "description": "일정한 범위의 숫자 생성",
+        "example": "list(range(3))",
+        "result": "[0, 1, 2]"
+    },
+    {
+        "name": "reversed()",
+        "category": "내장 함수",
+        "description": "순서를 거꾸로 뒤집는 반복자 반환",
+        "example": "list(reversed([1, 2, 3]))",
+        "result": "[3, 2, 1]"
+    },
+    {
+        "name": "set()",
+        "category": "내장 함수",
+        "description": "중복을 허용하지 않는 집합 생성, 중복된 값을 자동으로 제거하며 순서가 없음",
+        "example": "set([1, 1, 2])",
+        "result": "{1, 2}"
+    },
+    {
+        "name": "sorted()",
+        "category": "내장 함수",
+        "description": "값을 정렬하여 새로운 리스트로 반환, 원본 데이터는 유지하고 정렬된 새로운 리스트 생성",
+        "example": "sorted([3, 1, 2])",
+        "result": "[1, 2, 3]"
+    },
+    {
+        "name": "str()",
+        "category": "내장 함수",
+        "description": "데이터를 문자열로 변환",
+        "example": "str(123)",
+        "result": "'123'"
+    },
+    {
+        "name": "sum()",
+        "category": "내장 함수",
+        "description": "숫자들의 합계 반환",
+        "example": "sum([1, 2, 3])",
+        "result": "6"
+    },
+    {
+        "name": "tuple()",
+        "category": "내장 함수",
+        "description": "튜플 생성 또는 자료형 변환, 생성 후 요소를 변경할 수 없음",
+        "example": "tuple([1, 2, 3])",
+        "result": "(1, 2, 3)"
+    },
+    {
+        "name": "type()",
+        "category": "내장 함수",
+        "description": "객체의 자료형 확인, int, str, float 등 자료형 확인 가능",
+        "example": "type(1)",
+        "result": "<class 'int'>"
+    },
+
+    {
+        "name": "count()",
+        "category": "문자열 메서드",
+        "description": "특정 문자가 몇 번 나오는지 반환, 없으면 0",
+        "example": "'Programming 2'.count('m')",
+        "result": "2"
+    },
+    {
+        "name": "find()",
+        "category": "문자열 메서드",
+        "description": "특정 문자가 처음 나오는 위치 반환, 없으면 -1",
+        "example": "'Programming 2'.find('g')",
+        "result": "3"
+    },
+    {
+        "name": "index()",
+        "category": "문자열 메서드",
+        "description": "특정 문자가 처음 나오는 위치 반환, 없으면 오류",
+        "example": "'Programming 2'.index('a')",
+        "result": "8"
+    },
+    {
+        "name": "lower()",
+        "category": "문자열 메서드",
+        "description": "문자열을 모두 소문자로 변환, 원본 문자열은 변경하지 않고 새로운 문자열 반환",
+        "example": "'Programming 2'.lower()",
+        "result": "'programming 2'"
+    },
+    {
+        "name": "lstrip()",
+        "category": "문자열 메서드",
+        "description": "문자열 왼쪽 공백 제거",
+        "example": "'  Programming 2'.lstrip()",
+        "result": "'Programming 2'"
+    },
+    {
+        "name": "rstrip()",
+        "category": "문자열 메서드",
+        "description": "문자열 오른쪽 공백 제거",
+        "example": "'Programming 2  '.rstrip()",
+        "result": "'Programming 2'"
+    },
+    {
+        "name": "split()",
+        "category": "문자열 메서드",
+        "description": "문자열을 특정 기준으로 나누어 리스트로 반환",
+        "example": "'Programming 2'.split(' ')",
+        "result": "['Programming', '2']"
+    },
+    {
+        "name": "strip()",
+        "category": "문자열 메서드",
+        "description": "문자열 양쪽 공백 제거, 중간에 있는 공백은 제거하지 않음",
+        "example": "'  Programming 2  '.strip()",
+        "result": "'Programming 2'"
+    },
+    {
+        "name": "upper()",
+        "category": "문자열 메서드",
+        "description": "문자열을 모두 대문자로 변환, 원본 문자열은 변경하지 않고 새로운 문자열 반환",
+        "example": "'Programming 2'.upper()",
+        "result": "'PROGRAMMING 2'"
+    }
+]
