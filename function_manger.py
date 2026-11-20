@@ -49,13 +49,7 @@ class FunctionManager:
             print("JSON 불러오기 완료")
 
         except FileNotFoundError:
-            print("JSON 파일을 찾을 수 없습니다.")
-
-        except json.JSONDecodeError:
-            print("JSON 파일의 형식이 잘못되었습니다.")
-            
-        except TypeError:
-            print("JSON 데이터의 항목이 올바르지 않습니다.")
+            print("JSON 파일이 없습니다.")
 
     def print_functions(self):
 
