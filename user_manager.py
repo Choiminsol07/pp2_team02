@@ -1,5 +1,5 @@
 '''
-파일명: bookmark.py
+파일명: user_manager.py
 작성자: 김윤빈
 '''
 

@@ -1,5 +1,5 @@
 '''
-파일명: function_manager.py
+파일명: database.py
 작성자: 박지연
 '''
 
