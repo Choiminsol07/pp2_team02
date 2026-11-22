@@ -1,3 +1,7 @@
+'''
+파일명: function_manager.py
+작성자: 박지연
+'''
 
 import json
 
@@ -19,7 +23,7 @@ class FunctionInfo:
         }
 
 
-class FunctionManager:
+class FunctionDatabase:
     def __init__(self):
         self.functions = []
 
