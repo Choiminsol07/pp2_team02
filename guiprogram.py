@@ -11,11 +11,11 @@ window.geometry("750x550")
 window.configure(bg="#F2F5FA")
 
 # 제목
-title = tk.Label(window, text="파이썬 함수 백과사전", font=("맑은 고딕", 22, "bold"), bg="black", fg="whithe")
+title = tk.Label(window, text="파이썬 함수 백과사전", font=("맑은 고딕", 22, "bold"), bg="black", fg="white")
 title.pack(pady=20)
 
 # 검색창
-search_frame = tk.Frame(window, bg="whithe")
+search_frame = tk.Frame(window, bg="white")
 search_frame.pack(pady=10)
 
 search_entry = tk.Entry(search_frame, width=40, font=("맑은 고딕", 12))
