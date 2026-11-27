@@ -30,25 +30,25 @@ class UserManager:
         return False, "이미 즐겨찾기에 있습니다."
 
 
-# 즐겨찾기 삭제
-def remove_favorite(self, topic):
-    if topic in self.favorites:
-        self.favorites.remove(topic)
-        return True, f"{topic}이(가) 즐겨찾기에서 삭제되었습니다."
+    # 즐겨찾기 삭제
+    def remove_favorite(self, topic):
+        if topic in self.favorites:
+            self.favorites.remove(topic)
+            return True, f"{topic}이(가) 즐겨찾기에서 삭제되었습니다."
 
-    return False, "즐겨찾기에 없는 항목입니다."
-
-
-# 즐겨찾기 목록 조회
-def show_favorites(self):
-    return self.favorites.copy()
+        return False, "즐겨찾기에 없는 항목입니다."
 
 
-# 즐겨찾기 여부 확인
-def is_favorite(self, topic):
-    return topic in self.favorites
+    # 즐겨찾기 목록 조회
+    def show_favorites(self):
+        return self.favorites.copy()
 
 
-# 전체 함수 목록 반환
-def get_functions(self):
-    return self.functions.copy()
+    # 즐겨찾기 여부 확인
+    def is_favorite(self, topic):
+        return topic in self.favorites
+
+
+    # 전체 함수 목록 반환
+    def get_functions(self):
+        return self.functions.copy()

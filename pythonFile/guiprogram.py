@@ -15,18 +15,6 @@ class FunctionApp:
         self.window.geometry("750x550")
         self.window.configure(bg="white")
 
-        # 함수 목록
-        self.examples = [
-            "abs()", "all()", "any()", "bin()", "bool()",
-            "bytearray()", "bytes()", "complex()", "dict()",
-            "dir()", "eval()", "float()", "help()", "id()",
-            "input()", "int()", "isinstance()", "len()",
-            "list()", "max()", "min()", "object()", "open()",
-            "print()", "range()", "reversed()", "set()",
-            "sorted()", "str()", "sum()", "tuple()", "type()",
-            "count()", "find()", "index()", "lower()", "lstrip()",
-            "rstrip()", "split()", "strip()", "upper()"
-        ]
 
         # 화면 구성 함수 호출
         self.create_title()
@@ -152,9 +140,3 @@ class FunctionApp:
     # 프로그램 실행
     def run(self):
         self.window.mainloop()
-
-
-# 프로그램 실행
-if __name__ == "__main__":
-    app = FunctionApp()
-    app.run()

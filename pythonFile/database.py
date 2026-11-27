@@ -70,3 +70,27 @@ class FunctionDatabase:
             print(f"[결과] {f.result}")
 
             print("--------------------------------")
+
+    # 함수명으로 함수 정보 찾기
+    def get_function(self, name):
+        for f in self.functions:
+            if f.name == name:
+                return f
+
+        return None
+
+    # 전체 함수명 목록 반환
+    def get_function_names(self):
+        return [f.name for f in self.functions]
+
+    # 함수명으로 함수 정보 조회
+    def get_function(self, name):
+        for f in self.functions:
+            if f.name == name:
+                return f
+
+        return None
+
+    # 전체 함수명 목록 반환
+    def get_function_names(self):
+        return [f.name for f in self.functions]
