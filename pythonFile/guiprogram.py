@@ -5,16 +5,28 @@
 '''
 
 import tkinter as tk
-
+from database import FunctionDatabase
+from user_manager import UserManager
 
 class FunctionApp:
     def __init__(self):
         # 메인 창 생성
         self.window = tk.Tk()
         self.window.title("파이썬 함수 백과사전")
-        self.window.geometry("750x550")
+        self.window.geometry("950x750")
         self.window.configure(bg="white")
 
+
+        # 데이터베이스 연결
+        self.db = FunctionDatabase()
+        self.db.load_json()
+
+        # 사용자 관리 연결
+        self.user_manager = UserManager()
+        self.user_manager.functions = self.db.get_function_names()
+
+        # 현재 화면에 표시되는 함수 이름 저장
+        self.displayed_names = []
 
         # 화면 구성 함수 호출
         self.create_title()
@@ -23,6 +35,9 @@ class FunctionApp:
         self.create_function_list()
         self.create_detail_frame()
         self.create_bottom_buttons()
+
+        # 전체 함수 목록 출력
+        self.show_all()
 
 
     # 제목
@@ -59,10 +74,6 @@ class FunctionApp:
         self.function_list = tk.Listbox(left_frame, font=("맑은 고딕", 12), height=15)
         self.function_list.pack(fill="both", expand=True, padx=15, pady=10)
 
-        # 함수 목록 출력
-        for item in self.examples:
-            self.function_list.insert(tk.END, item)
-
         # 함수를 선택하면 설명창에 표시
         self.function_list.bind("<<ListboxSelect>>", self.select_function)
 
@@ -92,49 +103,91 @@ class FunctionApp:
         tk.Button( bottom_frame, text="즐겨찾기 목록", width=15, command=self.show_favorites).pack(side="left", padx=10)
 
 
-    # 검색
     def search_function(self):
         keyword = self.search_entry.get().strip().lower()
 
-        self.function_list.delete(0, tk.END)
+        names = self.db.get_function_names()
+        result = [name for name in names if keyword in name.lower()]
 
-        for item in self.examples:
-            if keyword in item.lower():
-                self.function_list.insert(tk.END, item)
+        self.display_functions(result)
 
-        if self.function_list.size() == 0:
+        if not result:
             self.detail_text.config(text="검색 결과가 없습니다.")
+
+
+    # 목록을 화면에 출력하는 함수
+    def display_functions(self, names):
+        self.function_list.delete(0, tk.END)
+        self.displayed_names = names.copy()
+
+        for name in names:
+            self.function_list.insert(tk.END, name)
 
 
     # 함수 선택
     def select_function(self, event):
         selected = self.function_list.curselection()
 
-        if selected:
-            function_name = self.function_list.get(selected[0])
-            self.detail_text.config(text=f"{function_name}\n\n상세 설명 연결 예정")
+        if not selected:
+            return
+
+        name = self.displayed_names[selected[0]]
+        function = self.db.get_function(name)
+
+        if function is None:
+            return
+
+        info = (
+            f"함수명: {function.name}\n\n"
+            f"카테고리: {function.category}\n\n"
+            f"설명: {function.description}\n\n"
+            f"예제:\n{function.example}\n\n"
+            f"결과:\n{function.result}"
+        )
+
+        self.detail_text.config(text=info)
+
+        if self.user_manager.is_favorite(name):
+            self.favorite_button.config(text="즐겨찾기 삭제")
+        else:
+            self.favorite_button.config(text="즐겨찾기 추가")
 
 
-    # 즐겨찾기 추가 (추후 UserManager 연결)
+    # 즐겨찾기 추가 및 삭제
     def add_favorite(self):
         selected = self.function_list.curselection()
 
-        if selected:
-            function_name = self.function_list.get(selected[0])
-            self.detail_text.config(text=f"{function_name}\n즐겨찾기 기능 연결 예정")
+        if not selected:
+            return
+
+        name = self.displayed_names[selected[0]]
+
+        if self.user_manager.is_favorite(name):
+            success, message = self.user_manager.remove_favorite(name)
+        else:
+            success, message = self.user_manager.add_favorite(name)
+
+        self.detail_text.config(text=message)
+
+        if self.user_manager.is_favorite(name):
+            self.favorite_button.config(text="즐겨찾기 삭제")
+        else:
+            self.favorite_button.config(text="즐겨찾기 추가")
 
 
     # 전체 함수 목록
     def show_all(self):
-        self.function_list.delete(0, tk.END)
-
-        for item in self.examples:
-            self.function_list.insert(tk.END, item)
+        names = self.db.get_function_names()
+        self.display_functions(names)
 
 
-    # 즐겨찾기 목록 (추후 UserManager 연결)
+    # 즐겨찾기 목록
     def show_favorites(self):
-        self.detail_text.config(text="즐겨찾기 목록 기능 연결 예정")
+        favorites = self.user_manager.show_favorites()
+        self.display_functions(favorites)
+
+        if not favorites:
+            self.detail_text.config(text="즐겨찾기 목록이 비어 있습니다.")
 
 
     # 프로그램 실행
